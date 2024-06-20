@@ -17,21 +17,23 @@ html, body{
     margin: 0;
     top: 0;
     left: 0;
-    height: 44px;
+    height: 34px;
     width: 100%;
     background-color: orange;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
-    padding: 0;
+    padding: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 #menu-button {
-    background-color: orange;
-    border: none;
-    padding: 0;
+    background-color: orange !important;
+    border: none !important;
+    padding: 0 !important;
     cursor: pointer;
+    outline: none;
+    box-shadow: none;
 }
 
 #menu-button img {
