@@ -41,7 +41,7 @@
         function addDrugstoreMarkers(data, map) {
             data.drugstores.forEach(drugstore => {
                 L.marker([drugstore.latitude, drugstore.longitude]).addTo(map)
-                    .bindPopup('<b>' + drugstore.name + '</b><br>' + drugstore.address);
+                    .bindPopup('<b>' + drugstore.name + '</b><br>' + drugstore.tel + '<br>'+ drugstore.address);
             });
         }
         // Call the initMap function when the window loads
