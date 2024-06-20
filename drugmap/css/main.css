@@ -40,10 +40,8 @@ html, body{
 #menu-button img {
     width: 24px;
     height: 24px;
-    margin: auto;
+    margin: 13px 0 13px 0;
     position: relative;
-    top: 0;
-    bottom: 0;
 }
 
 #address-search {
