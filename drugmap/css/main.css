@@ -17,6 +17,7 @@ html, body{
     margin: 0;
     top: 0;
     left: 0;
+    right: 0;
     height: 40px;
     width: 100%;
     background-color: orange;
@@ -39,6 +40,12 @@ html, body{
 #menu-button img {
     width: 24px;
     height: 24px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 #address-search {
