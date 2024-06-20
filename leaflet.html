@@ -18,11 +18,13 @@
 
     <script>
         // Custom drugstore marker
-        var drugstoreIcon = L.icon({
-            iconUrl: 'drugmap/images/drugmarker.png',
+        var drugstoreIcon = L.divIcon({
+            //iconUrl: 'drugmap/images/drugmarker.png',
+            className: 'drugstore-icon',
+            html: '<img src="drugmap/images/drugmarker.png" style="width: 40px; height: 60px;">',
             iconSize: [40, 60],
             iconAnchor: [25, 58],
-            popupAnchor: [0, -30]
+            popupAnchor: [0, -55]
         });
         // Function to initialize the map and load the data
         function initMap() {
