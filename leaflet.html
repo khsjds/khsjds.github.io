@@ -17,6 +17,13 @@
     <div id="mapid"></div>
 
     <script>
+        // Custom drugstore marker
+        var drugstoreIcon = L.icon({
+            iconUrl: 'drugmap/images/drugmarker.png',
+            iconSize: [40, 60],
+            iconAnchor: [25, 58],
+            popupAnchor: [0, -30]
+        });
         // Function to initialize the map and load the data
         function initMap() {
             var mymap = L.map('mapid').setView([23.6978, 120.9605], 8);
@@ -30,17 +37,13 @@
             //Fetch the JSON data
             fetch('drugmap/JSON/drugstoreinfo.json')
                 .then(response => response.json())
-                .then(data => {
-                    addDrugstoreMarkers(data, mymap);
-                })
-                .catch(error => {
-                    console.error('Error loading the drugstore data: ', error)
-                });
-            }
+                .then(data => addDrugstoreMarkers(data, mymap))
+                .catch(error => console.error('Error loading the drugstore data: ', error));
+        }
         // Function to add markers to the map
         function addDrugstoreMarkers(data, map) {
             data.drugstores.forEach(drugstore => {
-                L.marker([drugstore.latitude, drugstore.longitude]).addTo(map)
+                L.marker([drugstore.latitude, drugstore.longitude], {icon:drugstoreIcon}).addTo(map)
                     .bindPopup('<b>' + drugstore.name + '</b><br>' + drugstore.tel + '<br>'+ drugstore.address);
             });
         }
