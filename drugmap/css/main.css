@@ -40,7 +40,7 @@ html, body{
 #menu-button img {
     width: 24px;
     height: 24px;
-    margin: 5px 0 5px 0;
+    margin: 8px 0 8px 0;
     position: relative;
 }
 
@@ -48,7 +48,6 @@ html, body{
     padding: 5px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    display: flex;
 }
 
 @media (max-width: 600px) {
