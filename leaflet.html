@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>My Map</title>
-    <link rel="stylesheet" href="/leaflet/leaflet.css" />
-    <script src="leaflet/leaflet.js"></script>
+    <link rel="stylesheet" href="drugmap/leaflet/leaflet.css" />
+    <script src="drugmap/leaflet/leaflet.js"></script>
     <style>
         #mapid { height: 600px; }
     </style>
@@ -12,12 +12,33 @@
     <div id="mapid"></div>
 
     <script>
-        var mymap = L.map('mapid').setView([23.6978, 120.9605], 8);
+        // Function to initialize the map and load the data
+        function initMap() {
+            var mymap = L.map('mapid').setView([23.6978, 120.9605], 8);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-        }).addTo(mymap);
+            // Adding the tile layer to the map
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+            }).addTo(mymap);
+
+            //Fetch the JSON data
+            fetch('drugmap/data.json')
+                .then(response => response.json())
+                .then(data => {
+                    addDrugstoreMarkers(data, mymap);
+                })
+                .catch(error => {
+                    console.error('Error loading the drugstore data: ', error)
+                });
+            }
+        // Function to add markers to the map
+        function addDrugstoreMarkers(data, map) {
+            data.drugstores.forEach(drugstore => {
+                L.marker([drugstore.latitude, drugstore.longitude]).addTo(map)
+                    .bindPopup('<b>' + drugstore.name + '</b><br>' + drugstore.address);
+            });
+        }
     </script>
 </body>
 </html>
