@@ -2,9 +2,59 @@
 <html>
 <head>
     <title>My Map</title>
-    <link rel="stylesheet" href="drugmap/css/main.css" />
     <link rel="stylesheet" href="drugmap/leaflet/leaflet.css" />
     <script src="drugmap/leaflet/leaflet.js"></script>
+    <style>
+        html, body{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #mapid {
+            position: absolute;
+            top: 50px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #menu-button img {
+            width: 24px;
+            height: 24px;
+        }
+
+        #address-search {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 600px) {
+            #top-bar div {
+                display: block;
+            }
+
+            #address-search {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="top-bar">
