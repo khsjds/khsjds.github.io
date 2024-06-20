@@ -23,7 +23,7 @@
             }).addTo(mymap);
 
             //Fetch the JSON data
-            fetch('drugmap/data.json')
+            fetch('drugmap/JSON/data.json')
                 .then(response => response.json())
                 .then(data => {
                     addDrugstoreMarkers(data, mymap);
